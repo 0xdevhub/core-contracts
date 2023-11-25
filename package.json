@@ -10,8 +10,8 @@
   },
   "scripts": {
     "node": "NODE_ENV=development hardhat node",
-    "deploy:localhost": "NODE_ENV=development hardhat run --network localhost scripts/deploy.ts",
-    "deploy:mumbai": "hardhat run --network mumbai scripts/deploy.ts",
+    "release:localhost": "NODE_ENV=development && pnpm deploy",
+    "release": "hardhat run scripts/deploy.ts",
     "compile": "hardhat compile",
     "test": "NODE_ENV=development hardhat test",
     "typechain": "hardhat typechain",
@@ -48,6 +48,9 @@
   "dependencies": {
     "@chainlink/contracts-ccip": "^0.7.6",
     "@openzeppelin/contracts": "^5.0.0",
-    "dotenv": "^16.3.1"
+    "@types/lodash": "^4.14.202",
+    "cli-spinners": "^2.9.2",
+    "dotenv": "^16.3.1",
+    "lodash": "^4.17.21"
   }
 }

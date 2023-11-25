@@ -7,23 +7,35 @@ import {
 } from './utils'
 
 import { DEVELOPER_ROLE, DEVELOPER_ROLE_DELAY } from './constants'
+import { Spinner } from './spinner'
+import cliSpinner from 'cli-spinners'
+
+const spinner: Spinner = new Spinner(cliSpinner.dots)
 
 async function main() {
+  console.log(`ℹ️  Deploying...`)
+
+  spinner.start()
   const { chainId } = await getNetwork()
-  console.log('chainId ' + chainId)
+  console.log(`ℹ️  chainId: ${chainId}`)
 
-  const [owner, developer] = await getSigners()
-  console.log('owner:' + owner.address)
+  const [owner] = await getSigners()
+  console.log(`ℹ️  owner: ${owner.address}`)
 
-  // deploy access management contract
+  /// deploy access management contract
+
+  console.log(`ℹ️  Deploying access management...`)
+
   const accessManagement = await deployContract(
     'AccessManagement',
     owner.address
   )
   const accessManagementAddress = await getContractAddress(accessManagement)
-  console.log('accessManagementAddress:' + accessManagementAddress)
+  console.log(`✅ Access management deployed: ${accessManagementAddress}`)
 
   // grant role to developer
+  console.log(`ℹ️  granting developer role...`)
+
   const accessManagementContract = await getContractAt(
     'AccessManagement',
     accessManagementAddress
@@ -31,27 +43,23 @@ async function main() {
 
   await accessManagementContract.grantRole(
     DEVELOPER_ROLE,
-    developer.address,
+    owner.address,
     DEVELOPER_ROLE_DELAY
   )
 
-  console.log(
-    'developer role granted: ',
-    developer.address,
-    DEVELOPER_ROLE,
-    DEVELOPER_ROLE_DELAY
-  )
+  console.log(`✅ developer role granted`)
 
   // deploy hub contract
+  console.log(`ℹ️  Deploying hub...`)
   const hubContract = await deployContract('Hub', accessManagementAddress)
   const hubAddress = await getContractAddress(hubContract)
-  console.log('hubAddress:' + hubAddress)
+  console.log(`✅ Hub deployed: ${hubAddress}`)
 
-  // todo: set function role
-  // todo: deploy apps
+  spinner.stop()
 }
 
 main().catch((error) => {
   console.error(error)
+  spinner.stop()
   process.exitCode = 1
 })

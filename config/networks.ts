@@ -1,16 +1,24 @@
-const networks = {}
+import { getChainRPCById } from '@/lib/utils/network'
+import { merge, reduce } from 'lodash'
+import { evmAccounts } from './accounts'
+import { avalancheFuji } from './chains'
+import { Chain } from './types'
 
-if (process.env.NODE_ENV !== 'development') {
-  Object.assign(networks, {
-    mumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/${process.env.MUMBAI_API_KEY}`,
-      chainId: 80001,
-      accounts: [
-        String(process.env.ACCOUNTS_PRIVATE_KEY_1),
-        String(process.env.ACCOUNTS_PRIVATE_KEY_2)
-      ]
-    }
-  })
-}
+export const AVALANCHE: Chain = merge(avalancheFuji, {
+  accounts: evmAccounts,
+  rpcUrls: {
+    protocol: getChainRPCById(avalancheFuji.id)
+  }
+})
 
-export { networks }
+export const allowedChains = [AVALANCHE]
+
+export const allowedChainsConfig = reduce(
+  allowedChains,
+  (acc, chain: Chain) => {
+    acc[chain.id] = chain
+
+    return acc
+  },
+  {} as { [key: number]: Chain }
+)
