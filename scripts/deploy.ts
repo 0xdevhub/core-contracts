@@ -56,6 +56,9 @@ async function main() {
   console.log(`✅ Hub deployed: ${hubAddress}`)
 
   spinner.stop()
+
+  // Todo: verify contracts
+  // Todo: create task to publish new app
 }
 
 main().catch((error) => {
