@@ -2,19 +2,21 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 import { HardhatUserConfig } from 'hardhat/config'
+import '@nomicfoundation/hardhat-verify'
 import '@nomicfoundation/hardhat-toolbox'
 import '@nomiclabs/hardhat-solhint'
 import 'tsconfig-paths/register'
 
-import { allowedChainsConfig } from '@/config/networks'
+import { allowedChainsConfig, avalancheFujiChain } from '@/config/networks'
 
 const config: HardhatUserConfig = {
   networks:
     process.env.NODE_ENV !== 'development'
       ? {
-          avalancheFuji: {
-            url: allowedChainsConfig['43113'].rpcUrls.default.http[0],
-            accounts: allowedChainsConfig['43113'].accounts
+          [avalancheFujiChain.id]: {
+            url: allowedChainsConfig[avalancheFujiChain.id].rpcUrls.default
+              .http[0],
+            accounts: allowedChainsConfig[avalancheFujiChain.id].accounts
           }
         }
       : {
@@ -37,6 +39,12 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: 'typechain',
     target: 'ethers-v6'
+  },
+  etherscan: {
+    apiKey: {
+      mainnet: process.env.ETHERSCAN_API_KEY!,
+      avalancheFujiTestnet: process.env.AVALANCHE_FUJI_API_KEY!
+    }
   }
 }
 

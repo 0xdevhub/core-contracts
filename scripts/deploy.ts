@@ -12,10 +12,8 @@ import cliSpinner from 'cli-spinners'
 
 const spinner: Spinner = new Spinner(cliSpinner.dots)
 
-async function main() {
+const deploy = async () => {
   console.log(`ℹ️  Deploying...`)
-
-  spinner.start()
   const { chainId } = await getNetwork()
   console.log(`ℹ️  chainId: ${chainId}`)
 
@@ -55,14 +53,20 @@ async function main() {
   const hubAddress = await getContractAddress(hubContract)
   console.log(`✅ Hub deployed: ${hubAddress}`)
 
-  spinner.stop()
-
   // Todo: verify contracts
   // Todo: create task to publish new app
 }
 
-main().catch((error) => {
-  console.error(error)
-  spinner.stop()
-  process.exitCode = 1
-})
+const main = async () => {
+  try {
+    spinner.start()
+    await deploy()
+    spinner.stop()
+  } catch (error) {
+    console.error(error)
+    process.exitCode = 1
+    spinner.stop()
+  }
+}
+
+main()
