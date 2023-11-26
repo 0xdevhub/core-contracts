@@ -10,7 +10,7 @@ import { DEVELOPER_ROLE, DEVELOPER_ROLE_DELAY } from './constants'
 import { Spinner } from './spinner'
 import cliSpinner from 'cli-spinners'
 
-const spinner: Spinner = new Spinner(cliSpinner.dots)
+const spinner: Spinner = new Spinner(cliSpinner.triangle)
 
 const deploy = async () => {
   console.log(`ℹ️  Deploying...`)
@@ -52,12 +52,9 @@ const deploy = async () => {
   const hubContract = await deployContract('Hub', accessManagementAddress)
   const hubAddress = await getContractAddress(hubContract)
   console.log(`✅ Hub deployed: ${hubAddress}`)
-
-  // Todo: verify contracts
-  // Todo: create task to publish new app
 }
 
-const main = async () => {
+;(async () => {
   try {
     spinner.start()
     await deploy()
@@ -67,6 +64,4 @@ const main = async () => {
     process.exitCode = 1
     spinner.stop()
   }
-}
-
-main()
+})()
