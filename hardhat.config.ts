@@ -44,7 +44,6 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       mainnet: process.env.ETHERSCAN_API_KEY!,
-      /// eg: pnpm hardhat verify --contract contracts/Hub.sol:Hub --network 43113 0x53E13Dd84Dc418095c31655573504F9A588F9159 "0x1987F5A465c27dD03d25a029d66a3eD800228EC9"
       avalancheFujiTestnet: process.env.AVALANCHE_FUJI_API_KEY!
     }
   }
