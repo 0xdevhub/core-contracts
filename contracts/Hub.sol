@@ -14,7 +14,7 @@ contract Hub is AccessManaged {
 
     mapping(bytes32 => App) private s_apps;
 
-    event Hub_AppAdded(bytes32 indexed appId_);
+    event Hub_AppAdded(bytes32 indexed appId_, address indexed appAddress_, string name_, string description_);
 
     constructor(address accessManagement_) AccessManaged(accessManagement_) {}
 
@@ -26,7 +26,7 @@ contract Hub is AccessManaged {
         bytes32 appId = _getNextAppId(appAddress_);
         s_apps[appId] = App({appAddress: appAddress_, name: name_, description: description_});
 
-        emit Hub_AppAdded(appId);
+        emit Hub_AppAdded(appId, appAddress_, name_, description_);
 
         return appId;
     }
