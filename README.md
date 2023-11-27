@@ -17,27 +17,6 @@
 
 - Avalanche Fuji: 0xd3975F5c825DDb608d32DDdF89d072c524470414
 
-#### Deploying contracts
-
-it will deploy both contracts, hub and access management
-
-```shell
-pnpm release --network 43113
-```
-
-#### Verifing contracts
-
-```shell
-pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
-```
-
-#### Adding new app
-
-```shell
-/// eg:
-pnpm hardhat add-new-app --hub-address [hubAddress] --app-address [appAddress] --name ["appName"] --description ["appDescription"] --network [networkId]
-```
-
 ## Getting Started
 
 ```shell
@@ -60,4 +39,25 @@ REPORT_GAS=true dlx hardhat test
 pnpm test
 pnpm test:watch
 pnpm test:coverage
+```
+
+## Deploying contracts
+
+it will deploy both contracts, hub and access management
+
+```shell
+pnpm release --network 43113
+```
+
+## Verifing contracts
+
+```shell
+pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
+```
+
+## Adding new app
+
+```shell
+/// eg:
+pnpm hardhat add-new-app --hub-address [hubAddress] --app-address [appAddress] --name ["appName"] --description ["appDescription"] --network [networkId]
 ```
