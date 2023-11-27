@@ -22,14 +22,12 @@
 it will deploy both contracts, hub and access management
 
 ```shell
-/// eg: where 43113 is the network id
 pnpm release --network 43113
 ```
 
 #### Verifing contracts
 
 ```shell
-/// eg:
 pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
 ```
 
@@ -46,8 +44,7 @@ pnpm hardhat add-new-app --hub-address [hubAddress] --app-address [appAddress] -
 pnpm compile
 pnpm typechain
 pnpm node
-pnpm deploy:localhost
-pnpm deploy:mumbai
+pnpm release
 ```
 
 ## Available scrips by `dlx hardhat`
