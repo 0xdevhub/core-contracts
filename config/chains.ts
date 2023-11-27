@@ -1,3 +1,4 @@
+import { evmAccounts } from './accounts'
 import { Chain } from './types'
 
 export const avalancheFuji: Chain = {
@@ -9,7 +10,11 @@ export const avalancheFuji: Chain = {
     name: 'Avalanche Fuji',
     symbol: 'AVAX'
   },
+  accounts: evmAccounts,
   rpcUrls: {
+    protocol: {
+      http: [process.env.PUBLIC_NETWORK_43113_HTTP_RPC!]
+    },
     default: { http: ['https://api.avax-test.network/ext/bc/C/rpc'] },
     public: { http: ['https://api.avax-test.network/ext/bc/C/rpc'] }
   },
@@ -23,6 +28,5 @@ export const avalancheFuji: Chain = {
       blockCreated: 7096959
     }
   },
-  testnet: true,
-  accounts: []
+  testnet: true
 }

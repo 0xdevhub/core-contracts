@@ -8,16 +8,16 @@ import '@nomiclabs/hardhat-solhint'
 import 'tsconfig-paths/register'
 import './tasks'
 
-import { allowedChainsConfig, avalancheFujiChain } from '@/config/networks'
+import { allowedChainsConfig } from '@/config/config'
+import { avalancheFuji } from '@/config/chains'
 
 const config: HardhatUserConfig = {
   networks:
     process.env.NODE_ENV !== 'development'
       ? {
-          [avalancheFujiChain.id]: {
-            url: allowedChainsConfig[avalancheFujiChain.id].rpcUrls.default
-              .http[0],
-            accounts: allowedChainsConfig[avalancheFujiChain.id].accounts
+          [avalancheFuji.id]: {
+            url: allowedChainsConfig[avalancheFuji.id].rpcUrls.default.http[0],
+            accounts: allowedChainsConfig[avalancheFuji.id].accounts
           }
         }
       : {
