@@ -1,4 +1,3 @@
-import { getContractAt } from '@/scripts/utils'
 import { task } from 'hardhat/config'
 import { Spinner } from '../scripts/spinner'
 import cliSpinner from 'cli-spinners'
