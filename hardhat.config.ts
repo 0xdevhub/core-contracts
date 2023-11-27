@@ -9,17 +9,26 @@ import 'tsconfig-paths/register'
 import './tasks'
 
 import { allowedChainsConfig } from '@/config/config'
-import { avalancheFuji } from '@/config/chains'
+import { reduce } from 'lodash'
+import { Chain } from './config/types'
+import { NetworksUserConfig } from 'hardhat/types'
 
 const config: HardhatUserConfig = {
   networks:
     process.env.NODE_ENV !== 'development'
-      ? {
-          [avalancheFuji.id]: {
-            url: allowedChainsConfig[avalancheFuji.id].rpcUrls.default.http[0],
-            accounts: allowedChainsConfig[avalancheFuji.id].accounts
-          }
-        }
+      ? reduce(
+          Object.values(allowedChainsConfig),
+          (acc, chain: Chain) => {
+            acc[chain.id] = {
+              url: chain.rpcUrls.default.http[0],
+              accounts: chain.accounts,
+              gasPrice: 2500000
+            }
+
+            return acc
+          },
+          {} as NetworksUserConfig
+        )
       : {
           localhost: {
             url: 'http://127.0.0.1:8545'
@@ -44,7 +53,8 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       mainnet: process.env.ETHERSCAN_API_KEY!,
-      avalancheFujiTestnet: process.env.AVALANCHE_FUJI_API_KEY!
+      avalancheFujiTestnet: process.env.AVALANCHE_FUJI_API_KEY!,
+      optimisticGoerli: process.env.OPTIMISM_GOERLI_API_KEY!
     }
   }
 }

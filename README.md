@@ -5,17 +5,19 @@
 ## Networks
 
 - Avalanche Fuji (43113)
-- Arbitrum Rinkeby (soon)
+- Optimism Goerli (420)
 
 ## Contracts
 
 #### AccessManagement
 
 - Avalanche Fuji: 0x6815547453B8731A39eB420C11E45D6c685a677C
+- Optimism Goerli: 0x1987F5A465c27dD03d25a029d66a3eD800228EC9
 
 #### Hub
 
 - Avalanche Fuji: 0xd3975F5c825DDb608d32DDdF89d072c524470414
+- Optimism Goerli: 0x747bC054Da9C824eC9f10D5DCEe0D8FA3BecDc38
 
 ## Getting Started
 

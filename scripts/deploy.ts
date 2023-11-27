@@ -12,7 +12,9 @@ import cliSpinner from 'cli-spinners'
 
 const spinner: Spinner = new Spinner(cliSpinner.triangle)
 
-const deploy = async () => {
+const main = async () => {
+  spinner.start()
+
   console.log(`ℹ️  Deploying...`)
   const { chainId } = await getNetwork()
   console.log(`ℹ️  chainId: ${chainId}`)
@@ -51,17 +53,11 @@ const deploy = async () => {
   console.log(`ℹ️  Deploying hub...`)
   const hubContract = await deployContract('Hub', accessManagementAddress)
   const hubAddress = await getContractAddress(hubContract)
+  spinner.stop()
   console.log(`✅ Hub deployed: ${hubAddress}`)
 }
 
-;(async () => {
-  try {
-    spinner.start()
-    await deploy()
-    spinner.stop()
-  } catch (error) {
-    console.error(error)
-    process.exitCode = 1
-    spinner.stop()
-  }
-})()
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})
