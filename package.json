@@ -12,7 +12,7 @@
     "node": "NODE_ENV=development hardhat node",
     "release:localhost": "NODE_ENV=development && pnpm deploy",
     "release": "hardhat run scripts/deploy.ts",
-    "verify:hub": "hardhat run verify --contract contracts/Hub.sol:Hub",
+    "verify:hub": "hardhat verify --contract contracts/Hub.sol:Hub",
     "compile": "hardhat compile",
     "test": "NODE_ENV=development hardhat test",
     "typechain": "hardhat typechain",

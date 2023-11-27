@@ -1,16 +1,44 @@
 # 0xdevhub - core contracts
 
+[![Run Tests](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml/badge.svg)](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml)
+
+## Networks
+
+- Avalanche Fuji (43113)
+- Arbitrum Rinkeby (soon)
+
 ## Contracts
 
-### AccessManagement
+#### AccessManagement
 
-0x1987F5A465c27dD03d25a029d66a3eD800228EC9
+- Avalanche Fuji: 0x6815547453B8731A39eB420C11E45D6c685a677C
 
-### Hub
+#### Hub
 
-0x53E13Dd84Dc418095c31655573504F9A588F9159
+- Avalanche Fuji: 0xd3975F5c825DDb608d32DDdF89d072c524470414
 
-[![Run Tests](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml/badge.svg)](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml)
+#### Deploying contracts
+
+it will deploy both contracts, hub and access management
+
+```shell
+/// eg: where 43113 is the network id
+pnpm release --network 43113
+```
+
+#### Verifing contracts
+
+```shell
+/// eg:
+pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
+```
+
+#### Adding new app
+
+```shell
+/// eg:
+pnpm hardhat add-new-app --hub-address [hubAddress] --app-address [appAddress] --name ["appName"] --description ["appDescription"] --network [networkId]
+```
 
 ## Getting Started
 
