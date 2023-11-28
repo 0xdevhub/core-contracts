@@ -2,6 +2,8 @@
 
 [![Run Tests](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml/badge.svg)](https://github.com/0xdevhub/core-contracts/actions/workflows/tests.yml)
 
+Please, read [extra guides here](guides-examples.md).
+
 ## Networks
 
 - Avalanche Fuji (43113)
@@ -56,5 +58,3 @@ pnpm release --network 43113
 ```shell
 pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
 ```
-
-Please, read [extra guides here](guides-examples.md).
