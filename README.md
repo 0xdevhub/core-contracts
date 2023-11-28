@@ -11,13 +11,13 @@
 
 #### AccessManagement
 
-- Avalanche Fuji: 0x6815547453B8731A39eB420C11E45D6c685a677C
-- Optimism Goerli: 0x0077124A6913476D37405E46fb41F1AA7ce255D7
+- Avalanche Fuji: 0x091BEbE42637D6c283f88ceF478Cab8581293f73
+- Optimism Goerli: 0xd9b59f89A8FEF69d2Dbc028C9f00087432589F72
 
 #### Hub
 
-- Avalanche Fuji: 0xd3975F5c825DDb608d32DDdF89d072c524470414
-- Optimism Goerli: 0x747bC054Da9C824eC9f10D5DCEe0D8FA3BecDc38
+- Avalanche Fuji: 0xA5fBbb4B142A8062b37A2f2CbeBe8c67F65C9978 (❌ pending)
+- Optimism Goerli: 0x78a321E00Be5bf8Df399FCE76D92fd5C900638c9 (✅verified)
 
 ## Getting Started
 
