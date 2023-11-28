@@ -45,8 +45,7 @@ task('add-new-app', 'Add new app to the hub')
         payload.name,
         payload.description
       )
-
-      console.log(`✅ App ${name} added to hub ${hubAddress}`)
       spinner.stop()
+      console.log(`✅ App ${name} added to hub ${hubAddress}`)
     }
   )
