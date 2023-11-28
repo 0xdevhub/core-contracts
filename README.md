@@ -60,17 +60,20 @@ pnpm verify:hub --network [networkid] [hubAddress] ["AccessManagementAddress"]
 ## Adding new app
 
 ```shell
-/// eg:
 pnpm hardhat add-new-app --hub-address [hubAddress] --app-address [appAddress] --name ["appName"] --description ["appDescription"] --network [networkId]
 ```
 
 ## Grating role
+
+Please, read [extra guides here](guides-examples.md).
 
 ```shell
 pnpm hardhat grant-role --network 420 --access-management-address 0xd9b59f89A8FEF69d2Dbc028C9f00087432589F72 --target-address 0xeb52e9ae4a9fb37172978642d4c141ef53876f26 --role 3
 ```
 
 ## Granting function role
+
+Please, read [extra guides here](guides-examples.md).
 
 ```shell
 pnpm hardhat set-function-role --network 420 --access-management-address 0xd9b59f89A8FEF69d2Dbc028C9f00087432589F72 --target-address 0xA5fBbb4B142A8062b37A2f2CbeBe8c67F65C9978 --role 2 --bytes4-selector 0x31b85566
