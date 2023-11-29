@@ -13,13 +13,13 @@ Please, read [extra guides here](guides-examples.md).
 
 ### Avalanche Fuji (43113)
 
-- AccessManagement: 0x7953C478A5F5d53C263Bd1251BfC4c418d8C5568 (✅ verified)
-- Hub: 0xE69cEa099bde1f729a13C4D9eD41E0E6C5b8873b (✅ verified)
+- AccessManagement: [0x7953C478A5F5d53C263Bd1251BfC4c418d8C5568](https://avalanche.testnet.routescan.io/address/0x7953C478A5F5d53C263Bd1251BfC4c418d8C5568#code) (✅ verified)
+- Hub: [0xE69cEa099bde1f729a13C4D9eD41E0E6C5b8873b](https://avalanche.testnet.routescan.io/address/0xE69cEa099bde1f729a13C4D9eD41E0E6C5b8873b#code) (✅ verified)
 
 ### Optimism Goerli (420)
 
-- AccessManagement: 0x483E5D5a59EeB5dB9c2AAC502Da40fab173b8DF2 (✅verified)
-- Hub: 0x27aAd1692fD0F11C39c69c5412E52cCEf15045BD (✅verified)
+- AccessManagement: [0x483E5D5a59EeB5dB9c2AAC502Da40fab173b8DF2](https://goerli-optimism.etherscan.io/address/0x483E5D5a59EeB5dB9c2AAC502Da40fab173b8DF2#code) (✅verified)
+- Hub: [0x27aAd1692fD0F11C39c69c5412E52cCEf15045BD](https://goerli-optimism.etherscan.io/address/0x27aAd1692fD0F11C39c69c5412E52cCEf15045BD#code) (✅verified)
 
 ## Getting Started
 
