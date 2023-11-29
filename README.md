@@ -13,8 +13,8 @@ Please, read [extra guides here](guides-examples.md).
 
 ### Avalanche Fuji (43113)
 
-- AccessManagement: 0x091BEbE42637D6c283f88ceF478Cab8581293f73 (✅ verified)
-- Hub: 0xA5fBbb4B142A8062b37A2f2CbeBe8c67F65C9978 (✅ verified)
+- AccessManagement: 0x7953C478A5F5d53C263Bd1251BfC4c418d8C5568 (✅ verified)
+- Hub: 0xE69cEa099bde1f729a13C4D9eD41E0E6C5b8873b (✅ verified)
 
 ### Optimism Goerli (420)
 
