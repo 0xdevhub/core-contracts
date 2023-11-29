@@ -18,8 +18,8 @@ Please, read [extra guides here](guides-examples.md).
 
 ### Optimism Goerli (420)
 
-- AccessManagement: 0xd9b59f89A8FEF69d2Dbc028C9f00087432589F72 (✅verified)
-- Hub: 0x78a321E00Be5bf8Df399FCE76D92fd5C900638c9 (✅verified)
+- AccessManagement: 0x483E5D5a59EeB5dB9c2AAC502Da40fab173b8DF2 (✅verified)
+- Hub: 0x27aAd1692fD0F11C39c69c5412E52cCEf15045BD (✅verified)
 
 ## Getting Started
 
