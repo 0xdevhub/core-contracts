@@ -32,39 +32,42 @@ export const avalancheFuji: Chain = {
   gasPrice: 25000000000
 }
 
-export const optimismGoerli: Chain = {
-  id: 420,
-  name: 'Optimism Goerli',
-  network: 'optimism-goerli',
-  nativeCurrency: { name: 'Goerli Ether', symbol: 'ETH', decimals: 18 },
+export const polygonMumbai: Chain = {
+  id: 80_001,
+  name: 'Polygon Mumbai',
+  network: 'maticmum',
   accounts: evmAccounts,
+  nativeCurrency: { name: 'MATIC', symbol: 'MATIC', decimals: 18 },
   rpcUrls: {
     protocol: {
-      http: [process.env.PUBLIC_NETWORK_420_HTTP_RPC!]
+      http: [process.env.PUBLIC_NETWORK_80001_HTTP_RPC!]
+    },
+    infura: {
+      http: ['https://polygon-mumbai.infura.io/v3']
     },
     default: {
-      http: ['https://goerli.optimism.io']
+      http: ['https://rpc.ankr.com/polygon_mumbai']
     },
     public: {
-      http: ['https://goerli.optimism.io']
+      http: ['https://rpc.ankr.com/polygon_mumbai']
     }
   },
   blockExplorers: {
     etherscan: {
-      name: 'Etherscan',
-      url: 'https://goerli-optimism.etherscan.io'
+      name: 'PolygonScan',
+      url: 'https://mumbai.polygonscan.com'
     },
     default: {
-      name: 'Etherscan',
-      url: 'https://goerli-optimism.etherscan.io'
+      name: 'PolygonScan',
+      url: 'https://mumbai.polygonscan.com'
     }
   },
   contracts: {
     multicall3: {
       address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 49461
+      blockCreated: 25770160
     }
   },
   testnet: true,
-  gasPrice: 210000
+  gasPrice: 25000000000
 }
