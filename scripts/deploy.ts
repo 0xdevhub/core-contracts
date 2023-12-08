@@ -15,46 +15,59 @@ const spinner: Spinner = new Spinner(cliSpinner.triangle)
 const main = async () => {
   spinner.start()
 
-  console.log(`ℹ️  Deploying...`)
-  const { chainId } = await getNetwork()
-  console.log(`ℹ️  chainId: ${chainId}`)
+  try {
+    console.log(`ℹ️  Deploying...`)
+    const { chainId } = await getNetwork()
+    console.log(`ℹ️  chainId: ${chainId}`)
 
-  const [owner] = await getSigners()
-  console.log(`ℹ️  owner: ${owner.address}`)
+    const [owner] = await getSigners()
+    console.log(`ℹ️  owner: ${owner.address}`)
 
-  /// deploy access management contract
+    /// deploy access management contract
 
-  console.log(`ℹ️  Deploying access management...`)
+    console.log(`ℹ️  Deploying access management...`)
 
-  const accessManagement = await deployContract(
-    'AccessManagement',
-    owner.address
-  )
-  const accessManagementAddress = await getContractAddress(accessManagement)
-  console.log(`✅ Access management deployed: ${accessManagementAddress}`)
+    const accessManagement = await deployContract(
+      'AccessManagement',
+      owner.address
+    )
 
-  // grant role to developer
-  console.log(`ℹ️  granting developer role...`)
+    await accessManagement.waitForDeployment()
 
-  const accessManagementContract = await getContractAt(
-    'AccessManagement',
-    accessManagementAddress
-  )
+    const accessManagementAddress = await getContractAddress(accessManagement)
+    console.log(`✅ Access management deployed: ${accessManagementAddress}`)
 
-  await accessManagementContract.grantRole(
-    DEVELOPER_ROLE,
-    owner.address,
-    DEVELOPER_ROLE_DELAY
-  )
+    // grant role to developer
+    console.log(`ℹ️  granting developer role...`)
 
-  console.log(`✅ developer role granted`)
+    const accessManagementContract = await getContractAt(
+      'AccessManagement',
+      accessManagementAddress
+    )
 
-  // deploy hub contract
-  console.log(`ℹ️  Deploying hub...`)
-  const hubContract = await deployContract('Hub', accessManagementAddress)
-  const hubAddress = await getContractAddress(hubContract)
-  spinner.stop()
-  console.log(`✅ Hub deployed: ${hubAddress}`)
+    const tx = await accessManagementContract.grantRole(
+      DEVELOPER_ROLE,
+      owner.address,
+      DEVELOPER_ROLE_DELAY
+    )
+
+    await tx.wait()
+
+    console.log(`✅ developer role granted`)
+
+    // deploy hub contract
+    console.log(`ℹ️  Deploying hub...`)
+    const hubContract = await deployContract('Hub', accessManagementAddress)
+    await hubContract.waitForDeployment()
+
+    const hubAddress = await getContractAddress(hubContract)
+    spinner.stop()
+    console.log(`✅ Hub deployed: ${hubAddress}`)
+  } catch (error) {
+    spinner.stop()
+    console.log(error)
+    console.log(`❌ Hub deploy failed`)
+  }
 }
 
 main().catch((error) => {

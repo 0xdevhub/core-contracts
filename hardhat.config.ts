@@ -14,6 +14,8 @@ import { Chain } from './config/types'
 import { NetworksUserConfig } from 'hardhat/types'
 
 const config: HardhatUserConfig = {
+  defaultNetwork: 'hardhat',
+
   networks:
     process.env.NODE_ENV !== 'development'
       ? reduce(
@@ -60,17 +62,17 @@ const config: HardhatUserConfig = {
       // snowtrace: 'snowtrace'
     }
     // uncomment snowtrace if any issue with avalanche fuji
-    // customChains: [
-    //   {
-    //     network: 'snowtrace',
-    //     chainId: 43113,
-    //     urls: {
-    //       apiURL:
-    //         'https://api.routescan.io/v2/network/testnet/evm/43113/etherscan',
-    //       browserURL: 'https://avalanche.testnet.routescan.io'
+    //   customChains: [
+    //     {
+    //       network: 'snowtrace',
+    //       chainId: 43113,
+    //       urls: {
+    //         apiURL:
+    //           'https://api.routescan.io/v2/network/testnet/evm/43113/etherscan',
+    //         browserURL: 'https://avalanche.testnet.routescan.io'
+    //       }
     //     }
-    //   }
-    // ]
+    //   ]
   }
 }
 
